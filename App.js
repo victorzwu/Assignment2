@@ -41,36 +41,47 @@ export default function App() {
 
   function addEntry(calories, text) {
     let overLimit = false;
-    if(calories>500)
-    {
+    if (calories > 500) {
       overLimit = true;
     }
-    let entry = { calories: calories, text: text, overLimit: overLimit};
+    let entry = { calories: calories, text: text, overLimit: overLimit };
     writeToDB(entry);
   }
 
-  function removeEntry(id)
-  {
-    deleteFromDB(id)
+  function removeEntry(id) {
+    deleteFromDB(id);
   }
 
-  function editOverLimit(id)
-  {
-    editFromDB(id)
+  function editOverLimit(id) {
+    editFromDB(id);
   }
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerTitleStyle: {color: 'white'}, headerStyle: {backgroundColor: 'darkslateblue'}, contentStyle: {backgroundColor: 'mediumslateblue'}}}>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleStyle: { color: "white" },
+          headerStyle: { backgroundColor: "darkslateblue" },
+          contentStyle: { backgroundColor: "mediumslateblue" },
+        }}
+      >
         <Stack.Screen
           name="Home"
           options={{ headerShown: false }}
           initialParams={{ entries: entries }}
         >
-          {(props) => <Home {...props} entries={entries} removeEntry = {removeEntry} />}
+          {(props) => (
+            <Home {...props} entries={entries} removeEntry={removeEntry} />
+          )}
         </Stack.Screen>
         <Stack.Screen name="Edit">
-          {(props) => <EditEntry {...props} removeEntry = {removeEntry} editOverLimit = {editOverLimit} />}
+          {(props) => (
+            <EditEntry
+              {...props}
+              removeEntry={removeEntry}
+              editOverLimit={editOverLimit}
+            />
+          )}
         </Stack.Screen>
         <Stack.Screen name="Add">
           {(props) => <AddAnEntry {...props} addEntry={addEntry} />}

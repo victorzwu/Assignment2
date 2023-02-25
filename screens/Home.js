@@ -15,8 +15,10 @@ export default function Home({ entries, removeEntry }) {
   const navigation = useNavigation();
   return (
     <Tab.Navigator
+    sceneContainerStyle = {{backgroundColor: 'mediumslateblue'}}
       screenOptions={() => {
         return {
+          
           tabBarStyle: { backgroundColor: 'darkslateblue' },
           tabBarLabelStyle: {color: 'white'},
           headerStyle: { backgroundColor: 'darkslateblue' },
