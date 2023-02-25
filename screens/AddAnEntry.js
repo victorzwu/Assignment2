@@ -21,7 +21,7 @@ export default function AddAnEntry({ addEntry }) {
 
   function changedCalories(change) {
     setCalories(change);
-    !isEmpty(calories) &&!isNaN(calories) && parseInt(calories) > 0
+    !isEmpty(calories) && !isNaN(calories) && parseInt(calories) > 0
       ? setValidCalories(true)
       : setValidCalories(false);
   }
@@ -37,8 +37,6 @@ export default function AddAnEntry({ addEntry }) {
   }
 
   function submit(calories, text) {
-    console.log(validCalories)
-    console.log(validText)
     if (validCalories && validText) {
       addEntry(calories, text);
       resetText();
@@ -64,7 +62,7 @@ export default function AddAnEntry({ addEntry }) {
           </View>
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.text}>Description   </Text>
+          <Text style={styles.text}>Description  </Text>
           <View style={styles.descriptionInput}>
             <TextInput
               style={styles.textInput}
@@ -76,11 +74,26 @@ export default function AddAnEntry({ addEntry }) {
           </View>
         </View>
         <View style={{ flexDirection: "row", margin: 10 }}>
-          <Pressable style={styles.pressable} onPress={() => resetText()}>
+          <Pressable
+            android_ripple={{ color: "slateblue", foreground: "true" }}
+            style={({ pressed }) => {
+              return [
+                styles.pressableUnpressed,
+                pressed ? styles.pressablePressed : null,
+              ];
+            }}
+            onPress={() => resetText()}
+          >
             <Text style={{ color: "white" }}>Reset</Text>
           </Pressable>
           <Pressable
-            style={styles.pressable}
+            android_ripple={{ color: "slateblue", foreground: "true" }}
+            style={({ pressed }) => {
+              return [
+                styles.pressableUnpressed,
+                pressed ? styles.pressablePressed : null,
+              ];
+            }}
             onPress={() => submit(calories, text)}
           >
             <Text style={{ color: "white" }}>Submit</Text>
@@ -127,11 +140,18 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 13,
   },
-  pressable: {
+  pressableUnpressed: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginHorizontal: 20,
     borderRadius: 5,
     backgroundColor: "darkslateblue",
+  },
+  pressablePressed: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginHorizontal: 20,
+    borderRadius: 5,
+    backgroundColor: "slateblue",
   },
 });

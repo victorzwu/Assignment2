@@ -24,7 +24,13 @@ export default function EditEntry({ route, removeEntry, editOverLimit }) {
         <Text style={styles.text}>Description: {route.params.item.text}</Text>
         <View style={styles.pressableContainer}>
           <Pressable
-            style={styles.pressable}
+            android_ripple={{ color: "slateblue", foreground: "true" }}
+            style={({ pressed }) => {
+              return [
+                styles.pressableUnpressed,
+                pressed ? styles.pressablePressed : null,
+              ];
+            }}
             onPress={() =>
               Alert.alert(
                 "Important",
@@ -43,7 +49,13 @@ export default function EditEntry({ route, removeEntry, editOverLimit }) {
 
           {route.params.item.overLimit && (
             <Pressable
-              style={styles.pressable}
+              android_ripple={{ color: "slateblue", foreground: "true" }}
+              style={({ pressed }) => {
+                return [
+                  styles.pressableUnpressed,
+                  pressed ? styles.pressablePressed : null,
+                ];
+              }}
               onPress={() =>
                 Alert.alert(
                   "Important",
@@ -89,10 +101,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 10,
   },
-  pressable: {
+  pressableUnpressed: {
     padding: 10,
     marginHorizontal: 5,
     borderRadius: 5,
     backgroundColor: "darkslateblue",
+  },
+  pressablePressed: {
+    padding: 10,
+    marginHorizontal: 5,
+    borderRadius: 5,
+    backgroundColor: "slateblue",
   },
 });

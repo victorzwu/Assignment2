@@ -1,4 +1,4 @@
-import { Pressable } from "react-native";
+import { Pressable} from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AllEntries from "./AllEntries";
@@ -24,6 +24,7 @@ export default function Home({ entries, removeEntry }) {
           headerRight: () => {
             return (
               <Pressable
+                android_ripple={{ color: "slateblue", foreground: "true" }}
                 style={{ paddingRight: 10 }}
                 onPress={() => navigation.navigate("Add An Entry")}
               >
