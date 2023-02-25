@@ -5,7 +5,8 @@ import AllEntries from "./AllEntries";
 import OverLimitEntries from "./OverLimitEntries";
 import { useNavigation } from '@react-navigation/native';
 import AddAnEntry from "./AddAnEntry";
-import { FontAwesome } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons'; 
+
 
 
 const Tab = createBottomTabNavigator();
@@ -14,19 +15,18 @@ export default function Home() {
 
     const navigation = useNavigation();
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={() => {
+        return {
+          headerRight: () => {
+            return (
+              <Pressable style = {{paddingRight: 10}}onPress={() => navigation.navigate('Add')}>
+                <Entypo name="plus" size={24} color="black" />
+              </Pressable>
+            );
+          },
+        };
+      }}>
       <Tab.Screen
-        options={() => {
-          return {
-            headerRight: () => {
-              return (
-                <Pressable onPress={() => navigation.navigate('Add')}>
-                  <FontAwesome name="font-awesome" size={24} color="black" />
-                </Pressable>
-              );
-            },
-          };
-        }}
         name="All Entries"
         component={AllEntries}
       />
