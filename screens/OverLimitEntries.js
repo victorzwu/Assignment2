@@ -6,7 +6,7 @@ export default function OverLimitEntries({entries, removeEntry}) {
     console.log(entries)
   return (
     <View>
-      <EntriesList entries = {entries.filter(entry=> entry.calories>500)} removeEntry = {removeEntry}/>
+      <EntriesList entries = {entries.filter(entry=> entry.overLimit)} removeEntry = {removeEntry}/>
     </View>
   )
 }

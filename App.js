@@ -12,7 +12,6 @@ import { writeToDB } from "./Firebase/fireStoreHelper";
 import { deleteFromDB } from "./Firebase/fireStoreHelper";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from "react";
-import { useNavigation } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 
@@ -40,7 +39,12 @@ export default function App() {
   const [entries, setEntries] = useState([]);
 
   function addEntry(calories, text) {
-    let entry = { calories: calories, text: text };
+    let overLimit = false;
+    if(calories>500)
+    {
+      overLimit = true;
+    }
+    let entry = { calories: calories, text: text, overLimit: overLimit};
     writeToDB(entry);
   }
 
