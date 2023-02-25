@@ -12,10 +12,8 @@ import { writeToDB } from "../Firebase/fireStoreHelper";
 
 const Tab = createBottomTabNavigator();
 
-export default function Home({route}) {
-
+export default function Home({ entries }) {
   const navigation = useNavigation();
-
   return (
     <Tab.Navigator
       screenOptions={() => {
@@ -24,9 +22,7 @@ export default function Home({route}) {
             return (
               <Pressable
                 style={{ paddingRight: 10 }}
-                onPress={() =>
-                  navigation.navigate("Add")
-                }
+                onPress={() => navigation.navigate("Add")}
               >
                 <Entypo name="plus" size={24} color="black" />
               </Pressable>
@@ -35,16 +31,13 @@ export default function Home({route}) {
         };
       }}
     >
-      <Tab.Screen
-        name="All Entries"
-        component={AllEntries}
-        initialParams={{ entries: route.params.entries }}
-      />
-      <Tab.Screen
-        name="Over-limit Entries"
-        component={OverLimitEntries}
-        initialParams={{ entries: route.params.entries }}
-      />
+      <Tab.Screen name="All Entries">
+        {(props) => <AllEntries {...props} entries={entries} />}
+      </Tab.Screen>
+
+      <Tab.Screen name="Over-limit Entries">
+         {(props) => <OverLimitEntries {...props} entries={entries} />}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 }

@@ -14,6 +14,7 @@ export default function Entry({ removeEntry, item }) {
   return (
     <Pressable style = {styles.pressable} onPress = {()=>onEntryPress(item)}>
       <Text>{item.text}</Text>
+      <Pressable onPress = {removeEntry}></Pressable>
     </Pressable>
   );
 }

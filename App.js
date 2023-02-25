@@ -11,6 +11,7 @@ import { firestore } from "./Firebase/firebase-setup";
 import { writeToDB } from "./Firebase/fireStoreHelper";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 
@@ -42,15 +43,17 @@ export default function App() {
     writeToDB(entry);
   }
 
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={Home}
           options={{ headerShown: false }}
           initialParams={{ entries: entries }}
-        />
+        >
+          {(props) => <Home {...props} entries={entries} />}
+        </Stack.Screen>
         <Stack.Screen name="Edit" component={EditEntry} />
         <Stack.Screen name="Add">
           {(props) => <AddAnEntry {...props} addEntry={addEntry} />}

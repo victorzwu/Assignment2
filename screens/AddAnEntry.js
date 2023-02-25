@@ -1,8 +1,12 @@
 import { View, Text, TextInput, Pressable, Alert } from "react-native";
 import { useState } from "react";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 export default function AddAnEntry({ addEntry }) {
+
+const navigation = useNavigation();
+
   const [validCalories, setValidCalories] = useState(false);
   const [validText, setValidText] = useState(false);
   const [calories, setCalories] = useState("");
@@ -16,6 +20,11 @@ export default function AddAnEntry({ addEntry }) {
   function changedText(change) {
     setText(change);
     text !=="" ? setValidText(true) : setValidText(false);
+  }
+
+  function submit(calories, text){
+    addEntry(calories, text)
+    navigation.goBack()
   }
 
   return (
@@ -37,7 +46,7 @@ export default function AddAnEntry({ addEntry }) {
       <Pressable
         onPress={() =>
           validCalories && validText
-            ? addEntry(calories, text)
+            ? submit(calories, text)
             : Alert.alert("Invalid input", "Please check your input values")
         }
       >
