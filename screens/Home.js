@@ -17,7 +17,7 @@ export default function Home() {
       collection(firestore, "entries"),
       (querySnapshot) => {
         if (querySnapshot.empty) {
-          setGoals([]);
+          setEntries([]);
         } else {
           let arr = [];
           querySnapshot.docs.forEach((snap) =>
