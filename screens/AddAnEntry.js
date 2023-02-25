@@ -52,7 +52,7 @@ export default function AddAnEntry({ addEntry }) {
     <View style={{ alignItems: "center" }}>
       <View style={styles.container}>
         <View style={styles.inputContainer}>
-          <Text style={styles.text}>Calories </Text>
+          <Text style={styles.text}>Calories         </Text>
           <View style={styles.caloriesInput}>
             <TextInput
               style={styles.textInput}
@@ -64,7 +64,7 @@ export default function AddAnEntry({ addEntry }) {
           </View>
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.text}>Description </Text>
+          <Text style={styles.text}>Description   </Text>
           <View style={styles.descriptionInput}>
             <TextInput
               style={styles.textInput}
