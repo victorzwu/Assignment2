@@ -9,6 +9,7 @@ import OverLimitEntries from "./screens/OverLimitEntries";
 import Home from "./screens/Home";
 import { firestore } from "./Firebase/firebase-setup";
 import { writeToDB } from "./Firebase/fireStoreHelper";
+import { deleteFromDB } from "./Firebase/fireStoreHelper";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -43,6 +44,11 @@ export default function App() {
     writeToDB(entry);
   }
 
+  function removeEntry(id)
+  {
+    deleteFromDB(id)
+  }
+
 
   return (
     <NavigationContainer>
@@ -52,7 +58,7 @@ export default function App() {
           options={{ headerShown: false }}
           initialParams={{ entries: entries }}
         >
-          {(props) => <Home {...props} entries={entries} />}
+          {(props) => <Home {...props} entries={entries} removeEntry = {removeEntry} />}
         </Stack.Screen>
         <Stack.Screen name="Edit" component={EditEntry} />
         <Stack.Screen name="Add">
