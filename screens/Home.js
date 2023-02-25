@@ -34,13 +34,13 @@ export default function Home({ entries, removeEntry }) {
         };
       }}
     >
-      <Tab.Screen name="All Entries" options={{tabBarIcon: () => <MaterialIcons name="emoji-food-beverage" size={24} color="white" />}}>
+      <Tab.Screen name="All Entries" options={{ tabBarIcon: ({focused}) => <MaterialIcons name="emoji-food-beverage" size={24} color= {focused ? 'yellow' : 'white'}  />}}>
         {(props) => (
           <AllEntries {...props} entries={entries} removeEntry={removeEntry} />
         )}
       </Tab.Screen>
 
-      <Tab.Screen name="Over-limit Entries" options={{tabBarIcon: () => <MaterialCommunityIcons name="exclamation-thick" size={24} color="white" />}}>
+      <Tab.Screen name="Over-limit Entries" options={{tabBarIcon: ({focused}) => <MaterialCommunityIcons name="exclamation-thick" size={24} color= {focused ? 'yellow' : 'white'} />}}>
         {(props) => (
           <OverLimitEntries
             {...props}
