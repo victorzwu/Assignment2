@@ -25,8 +25,6 @@ export default function EntriesList() {
         return (
           <Entry
             item={item}
-            // removeEntry={removeEntry}
-            // onEntryPress={onEntryPress}
           />
         );
       }}

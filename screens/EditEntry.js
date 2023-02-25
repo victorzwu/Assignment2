@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function EditEntry() {
-  return (
+export default function EditEntry({route}) {
+    return (
     <View>
-      <Text>EditEntry</Text>
+      <Text>{route.params.text}</Text>
     </View>
   )
 }
