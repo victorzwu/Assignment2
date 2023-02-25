@@ -18,7 +18,6 @@ export default function EntriesList() {
     },
   ];
 
-
   return(
     <FlatList
       data={DATA}
