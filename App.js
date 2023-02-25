@@ -13,8 +13,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+      <Stack.Navigator >
+        <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
         <Stack.Screen name ="Edit" component = {EditEntry}/>
         <Stack.Screen name ="Add" component = {AddAnEntry}/>
       </Stack.Navigator>
