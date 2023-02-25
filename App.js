@@ -8,7 +8,7 @@ import EditEntry from "./screens/EditEntry";
 import OverLimitEntries from "./screens/OverLimitEntries";
 import Home from "./screens/Home";
 import { firestore } from "./Firebase/firebase-setup";
-import { writeToDB } from "./Firebase/fireStoreHelper";
+import { editFromDB, writeToDB } from "./Firebase/fireStoreHelper";
 import { deleteFromDB } from "./Firebase/fireStoreHelper";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from "react";
@@ -53,6 +53,10 @@ export default function App() {
     deleteFromDB(id)
   }
 
+  function editOverLimit(id)
+  {
+    editFromDB(id)
+  }
 
   return (
     <NavigationContainer>
@@ -64,7 +68,9 @@ export default function App() {
         >
           {(props) => <Home {...props} entries={entries} removeEntry = {removeEntry} />}
         </Stack.Screen>
-        <Stack.Screen name="Edit" component={EditEntry} />
+        <Stack.Screen name="Edit">
+          {(props) => <EditEntry {...props} removeEntry = {removeEntry} editOverLimit = {editOverLimit} />}
+        </Stack.Screen>
         <Stack.Screen name="Add">
           {(props) => <AddAnEntry {...props} addEntry={addEntry} />}
         </Stack.Screen>

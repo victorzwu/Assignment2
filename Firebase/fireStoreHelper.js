@@ -1,4 +1,4 @@
-import { collection, addDoc, deleteDoc, doc } from "firebase/firestore";
+import { collection, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { firestore } from "./firebase-setup";
 
 export async function writeToDB(entry) {
@@ -16,4 +16,12 @@ export async function writeToDB(entry) {
       console.log(err);
     }
   }
-  
+
+
+   export async function editFromDB(id) {
+    try {
+      await updateDoc(doc(firestore, "entries", id), {overLimit: false});
+    } catch (err) {
+      console.log(err);
+    }
+  }

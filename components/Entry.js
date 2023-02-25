@@ -8,7 +8,7 @@ export default function Entry({ removeEntry, item }) {
 
     function onEntryPress(item)
     {
-        navigation.navigate('Edit', {text: item.text})
+        navigation.navigate('Edit', {item: item})
     }
 
   return (
