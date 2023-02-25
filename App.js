@@ -38,9 +38,8 @@ export default function App() {
   const [entries, setEntries] = useState([]);
 
   function addEntry(calories, text) {
-    console.log('worked')
-    // let entry = { calories: calories, text: text };
-    // writeToDB(entry);
+    let entry = { calories: calories, text: text };
+    writeToDB(entry);
   }
 
   return (
