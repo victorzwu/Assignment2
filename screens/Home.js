@@ -25,7 +25,7 @@ export default function Home({ entries, removeEntry }) {
             return (
               <Pressable
                 style={{ paddingRight: 10 }}
-                onPress={() => navigation.navigate("Add")}
+                onPress={() => navigation.navigate("Add An Entry")}
               >
                 <Entypo name="plus" size={24} color="white" />
               </Pressable>

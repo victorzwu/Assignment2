@@ -74,7 +74,7 @@ export default function App() {
             <Home {...props} entries={entries} removeEntry={removeEntry} />
           )}
         </Stack.Screen>
-        <Stack.Screen name="Edit">
+        <Stack.Screen name="Edit Entry">
           {(props) => (
             <EditEntry
               {...props}
@@ -83,7 +83,7 @@ export default function App() {
             />
           )}
         </Stack.Screen>
-        <Stack.Screen name="Add">
+        <Stack.Screen name="Add An Entry">
           {(props) => <AddAnEntry {...props} addEntry={addEntry} />}
         </Stack.Screen>
       </Stack.Navigator>
