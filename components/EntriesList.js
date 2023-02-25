@@ -3,7 +3,7 @@ import React from "react";
 import Entry from "./Entry";
 
 export default function EntriesList() {
-  const DATA = [
+  const entries = [
     {
       id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
       text: "First Item",
@@ -18,15 +18,11 @@ export default function EntriesList() {
     },
   ];
 
-  return(
+  return (
     <FlatList
-      data={DATA}
+      data={entries}
       renderItem={({ item }) => {
-        return (
-          <Entry
-            item={item}
-          />
-        );
+        return <Entry item={item} />;
       }}
     />
   );
