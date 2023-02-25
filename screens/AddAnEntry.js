@@ -1,7 +1,8 @@
-import { View, Text, TextInput} from 'react-native'
+import { View, Text, TextInput, Pressable} from 'react-native'
+import { useState } from 'react';
 import React from 'react'
 
-export default function AddAnEntry({route}) {
+export default function AddAnEntry({addEntry}) {
     const [validCalories, setValidCalories] = useState(false);
     const [validText, setValidText] = useState(false);
     const [calories, setCalories] = useState("");
@@ -9,7 +10,7 @@ export default function AddAnEntry({route}) {
   return (
     <View>
       <TextInput />
-      <Pressable onPress = {()=> route.params.addEntry(calories, text)}>Submit</Pressable>
+      <Pressable onPress = {()=> addEntry(calories, text)}><Text>Submit</Text></Pressable>
     </View>
   )
 }

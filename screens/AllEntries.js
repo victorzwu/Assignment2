@@ -2,10 +2,10 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import EntriesList from '../components/EntriesList'
 
-export default function AllEntries({route}) {
+export default function AllEntries({entries}) {
   return (
     <View>
-      <EntriesList entries={route.params.entries}/>
+      <EntriesList entries={entries}/>
     </View>
   )
 }
