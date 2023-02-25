@@ -1,17 +1,14 @@
-import { View, Text, Pressable } from "react-native";
-import { useState, useEffect } from "react";
+import { Pressable } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AllEntries from "./AllEntries";
 import OverLimitEntries from "./OverLimitEntries";
 import { Entypo } from "@expo/vector-icons";
-import { firestore } from "../Firebase/firebase-setup";
-import { collection, onSnapshot } from "firebase/firestore";
-import { writeToDB } from "../Firebase/fireStoreHelper";
-
-const Tab = createBottomTabNavigator();
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home({ entries, removeEntry }) {
+  const Tab = createBottomTabNavigator();
+  const navigation = useNavigation();
   return (
     <Tab.Navigator
       screenOptions={() => {
@@ -30,11 +27,19 @@ export default function Home({ entries, removeEntry }) {
       }}
     >
       <Tab.Screen name="All Entries">
-        {(props) => <AllEntries {...props} entries={entries} removeEntry = {removeEntry} />}
+        {(props) => (
+          <AllEntries {...props} entries={entries} removeEntry={removeEntry} />
+        )}
       </Tab.Screen>
 
       <Tab.Screen name="Over-limit Entries">
-         {(props) => <OverLimitEntries {...props} entries={entries} removeEntry = {removeEntry}/>}
+        {(props) => (
+          <OverLimitEntries
+            {...props}
+            entries={entries}
+            removeEntry={removeEntry}
+          />
+        )}
       </Tab.Screen>
     </Tab.Navigator>
   );
