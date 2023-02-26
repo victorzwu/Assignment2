@@ -2,7 +2,7 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
-import { primaryColor, secondaryColor, tertiarycolor } from "../colorHelper";
+import { primaryColor, secondaryColor, tertiaryColor } from "../colorHelper";
 
 
 export default function Entry({ removeEntry, item }) {

@@ -1,7 +1,7 @@
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import React from "react";
 import Entry from "./Entry";
-import { primaryColor, secondaryColor, tertiarycolor } from "../colorHelper";
+import { primaryColor, secondaryColor, tertiaryColor } from "../colorHelper";
 
 export default function EntriesList({ removeEntry, entries }) {
   return (

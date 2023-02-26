@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
-import { primaryColor, secondaryColor, tertiarycolor } from "../colorHelper";
+import { primaryColor, secondaryColor, tertiaryColor } from "../colorHelper";
 
 
 export default function EditEntry({ route, removeEntry, editOverLimit }) {

@@ -10,7 +10,7 @@ import { useState } from "react";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { isEmpty } from "@firebase/util";
-import { primaryColor, secondaryColor, tertiarycolor } from "../colorHelper";
+import { primaryColor, secondaryColor, tertiaryColor } from "../colorHelper";
 
 
 export default function AddAnEntry({ addEntry }) {

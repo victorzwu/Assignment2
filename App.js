@@ -12,7 +12,7 @@ import { editFromDB, writeToDB } from "./Firebase/fireStoreHelper";
 import { deleteFromDB } from "./Firebase/fireStoreHelper";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from "react";
-import { primaryColor, secondaryColor, tertiarycolor } from "./colorHelper";
+import { primaryColor, secondaryColor, tertiaryColor } from "./colorHelper";
 
 const Stack = createNativeStackNavigator();
 

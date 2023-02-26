@@ -7,7 +7,7 @@ import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { primaryColor, secondaryColor, tertiarycolor } from "../colorHelper";
+import { primaryColor, secondaryColor, tertiaryColor } from "../colorHelper";
 
 export default function Home({ entries, removeEntry }) {
   const Tab = createBottomTabNavigator();
