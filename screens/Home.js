@@ -5,26 +5,26 @@ import AllEntries from "./AllEntries";
 import OverLimitEntries from "./OverLimitEntries";
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { darkslateblue } from "../colorHelper";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { primaryColor, secondaryColor, tertiarycolor } from "../colorHelper";
 
 export default function Home({ entries, removeEntry }) {
   const Tab = createBottomTabNavigator();
   const navigation = useNavigation();
   return (
     <Tab.Navigator
-      sceneContainerStyle={{ backgroundColor: "mediumslateblue" }}
+      sceneContainerStyle={{ backgroundColor: secondaryColor }}
       screenOptions={() => {
         return {
-          tabBarStyle: { backgroundColor: "darkslateblue" },
+          tabBarStyle: { backgroundColor: primaryColor },
           tabBarLabelStyle: { color: "white" },
-          headerStyle: { backgroundColor: "darkslateblue" },
+          headerStyle: { backgroundColor: primaryColor },
           headerTitleStyle: { color: "white" },
           headerRight: () => {
             return (
               <Pressable
-                android_ripple={{ color: "slateblue", foreground: "true" }}
+                android_ripple={{ color: tertiaryColor, foreground: "true" }}
                 style={{ paddingRight: 10 }}
                 onPress={() => navigation.navigate("Add An Entry")}
               >

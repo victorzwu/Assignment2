@@ -1,2 +1,3 @@
-export const darkslateblue = `#483d8b`;
-export const mediumslateblue = `#7b68ee`;
+export const primaryColor = `darkslateblue`;
+export const secondaryColor = `mediumslateblue`;
+export const tertiarycolor = 'slateblue';

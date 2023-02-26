@@ -10,6 +10,8 @@ import { useState } from "react";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { isEmpty } from "@firebase/util";
+import { primaryColor, secondaryColor, tertiarycolor } from "../colorHelper";
+
 
 export default function AddAnEntry({ addEntry }) {
   const navigation = useNavigation();
@@ -75,7 +77,7 @@ export default function AddAnEntry({ addEntry }) {
         </View>
         <View style={{ flexDirection: "row", margin: 10 }}>
           <Pressable
-            android_ripple={{ color: "slateblue", foreground: "true" }}
+            android_ripple={{ color: tertiaryColor, foreground: "true" }}
             style={({ pressed }) => {
               return [
                 styles.pressableUnpressed,
@@ -87,7 +89,7 @@ export default function AddAnEntry({ addEntry }) {
             <Text style={{ color: "white" }}>Reset</Text>
           </Pressable>
           <Pressable
-            android_ripple={{ color: "slateblue", foreground: "true" }}
+            android_ripple={{ color: tertiaryColor, foreground: "true" }}
             style={({ pressed }) => {
               return [
                 styles.pressableUnpressed,
@@ -121,18 +123,18 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 200,
     height: 40,
-    backgroundColor: "slateblue",
+    backgroundColor: tertiaryColor,
     padding: 10,
   },
   descriptionInput: {
     borderRadius: 5,
-    backgroundColor: "slateblue",
+    backgroundColor: tertiaryColor,
     padding: 10,
     width: 200,
     height: 100,
   },
   text: {
-    color: "darkslateblue",
+    color: primaryColor,
     fontSize: 15,
     fontWeight: "bold",
   },
@@ -145,13 +147,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginHorizontal: 20,
     borderRadius: 5,
-    backgroundColor: "darkslateblue",
+    backgroundColor: primaryColor,
   },
   pressablePressed: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginHorizontal: 20,
     borderRadius: 5,
-    backgroundColor: "slateblue",
+    backgroundColor: tertiaryColor,
   },
 });

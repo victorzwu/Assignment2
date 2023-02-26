@@ -12,7 +12,7 @@ import { editFromDB, writeToDB } from "./Firebase/fireStoreHelper";
 import { deleteFromDB } from "./Firebase/fireStoreHelper";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from "react";
-import { darkslateblue, mediumslateblue } from "./colorHelper";
+import { primaryColor, secondaryColor, tertiarycolor } from "./colorHelper";
 
 const Stack = createNativeStackNavigator();
 
@@ -61,8 +61,8 @@ export default function App() {
       <Stack.Navigator
         screenOptions={{
           headerTitleStyle: { color: "white" },
-          headerStyle: { backgroundColor: "darkslateblue" },
-          contentStyle: { backgroundColor: "mediumslateblue" },
+          headerStyle: { backgroundColor: primaryColor },
+          contentStyle: { backgroundColor: secondaryColor },
         }}
       >
         <Stack.Screen

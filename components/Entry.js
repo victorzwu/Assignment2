@@ -2,6 +2,8 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
+import { primaryColor, secondaryColor, tertiarycolor } from "../colorHelper";
+
 
 export default function Entry({ removeEntry, item }) {
   const navigation = useNavigation();
@@ -12,7 +14,7 @@ export default function Entry({ removeEntry, item }) {
 
   return (
     <Pressable
-      android_ripple={{ color: "slateblue", foreground: "true" }}
+      android_ripple={{ color: tertiaryColor, foreground: "true" }}
       style={({ pressed }) => {
         return [
           styles.pressableUnpressed,
@@ -41,8 +43,8 @@ export default function Entry({ removeEntry, item }) {
 
 const styles = StyleSheet.create({
   pressableUnpressed: {
-    borderColor: "darkslateblue",
-    backgroundColor: "darkslateblue",
+    borderColor: primaryColor,
+    backgroundColor: primaryColor,
     borderRadius: 5,
     borderWidth: 2,
     width: 300,
@@ -53,8 +55,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   pressablePressed: {
-    borderColor: "slateblue",
-    backgroundColor: "slateblue",
+    borderColor: tertiaryColor,
+    backgroundColor: tertiaryColor,
     borderRadius: 5,
     borderWidth: 2,
     width: 300,
@@ -79,6 +81,6 @@ const styles = StyleSheet.create({
   caloriesText: {
     fontSize: 15,
     fontWeight: "bold",
-    color: "darkslateblue",
+    color: primaryColor,
   },
 });

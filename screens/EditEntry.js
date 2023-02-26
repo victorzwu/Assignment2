@@ -3,6 +3,8 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import { primaryColor, secondaryColor, tertiarycolor } from "../colorHelper";
+
 
 export default function EditEntry({ route, removeEntry, editOverLimit }) {
   const navigation = useNavigation();
@@ -24,7 +26,7 @@ export default function EditEntry({ route, removeEntry, editOverLimit }) {
         <Text style={styles.text}>Description: {route.params.item.text}</Text>
         <View style={styles.pressableContainer}>
           <Pressable
-            android_ripple={{ color: "slateblue", foreground: "true" }}
+            android_ripple={{ color: tertiaryColor, foreground: "true" }}
             style={({ pressed }) => {
               return [
                 styles.pressableUnpressed,
@@ -49,7 +51,7 @@ export default function EditEntry({ route, removeEntry, editOverLimit }) {
 
           {route.params.item.overLimit && (
             <Pressable
-              android_ripple={{ color: "slateblue", foreground: "true" }}
+              android_ripple={{ color: tertiaryColor, foreground: "true" }}
               style={({ pressed }) => {
                 return [
                   styles.pressableUnpressed,
@@ -80,8 +82,8 @@ export default function EditEntry({ route, removeEntry, editOverLimit }) {
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: "slateblue",
-    backgroundColor: "slateblue",
+    borderColor: tertiaryColor,
+    backgroundColor: tertiaryColor,
     borderRadius: 5,
     borderWidth: 2,
     width: 300,
@@ -92,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    color: "darkslateblue",
+    color: primaryColor,
     fontWeight: "bold",
     fontSize: 20,
     padding: 5,
@@ -105,12 +107,12 @@ const styles = StyleSheet.create({
     padding: 10,
     marginHorizontal: 5,
     borderRadius: 5,
-    backgroundColor: "darkslateblue",
+    backgroundColor: primaryColor,
   },
   pressablePressed: {
     padding: 10,
     marginHorizontal: 5,
     borderRadius: 5,
-    backgroundColor: "slateblue",
+    backgroundColor: tertiaryColor,
   },
 });
